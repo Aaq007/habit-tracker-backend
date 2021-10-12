@@ -4,8 +4,8 @@ from django.db import models
 
 
 class Habits(models.Model):
-    name = models.CharField()
-    author = models.CharField()
+    name = models.CharField(max_length=32)
+    # author = models.CharField(max)
 
 
 # class User(models.Model):
