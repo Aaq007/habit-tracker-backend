@@ -9,3 +9,8 @@ from .serializers import HabitSerialzer
 class HabitListView(generics.ListAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerialzer
+
+
+class HabitCreateView(generics.CreateAPIView):
+    queryset = Habit.objects.all()
+    serializer_class = HabitSerialzer
