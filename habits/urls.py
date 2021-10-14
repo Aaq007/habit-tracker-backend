@@ -1,5 +1,7 @@
 from django.urls import path
+from .views import HabitListView
+
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('habits/', HabitListView.as_view()),
 ]
