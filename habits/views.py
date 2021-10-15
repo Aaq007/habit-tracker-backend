@@ -11,6 +11,6 @@ class HabitListView(generics.ListCreateAPIView):
     serializer_class = HabitSerialzer
 
 
-class HabitUpdateView(generics.RetrieveUpdateDestroyAPIView):
+class HabitUpdateView(generics.DestroyAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerialzer
