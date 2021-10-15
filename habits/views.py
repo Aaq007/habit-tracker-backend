@@ -17,3 +17,6 @@ class HabitListView(generics.ListCreateAPIView):
 class HabitUpdateView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerialzer
+
+    def get_object(self):
+        return self.request.user
