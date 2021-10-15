@@ -3,12 +3,14 @@ from rest_framework import generics
 
 from .models import Habit
 from .serializers import HabitSerialzer
+from .permissions import IsAuthorOrReadOnly
 # Create your views here.
 
 
 class HabitListView(generics.ListCreateAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerialzer
+    permission_classes = [IsAuthorOrReadOnly]
 
     def get_object(self):
         return self.request.user
