@@ -10,6 +10,9 @@ class HabitListView(generics.ListCreateAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerialzer
 
+    def get_object(self):
+        return self.request.user
+
 
 class HabitUpdateView(generics.DestroyAPIView):
     queryset = Habit.objects.all()
