@@ -8,3 +8,6 @@ from .serializers import UserLoginSerializer
 class UserLoginView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = UserLoginSerializer
+
+    def get_object(self):
+        return self.request.user
