@@ -19,5 +19,6 @@ class HabitCreateSerializer(serializers.Serializer):
             datetime.fromisoformat(value)
 
     def create(self, validated_data):
-        habit = Habit.objects.create_user(**validated_data)
+        user = self.context['reuqest'].user
+        habit = Habit.objects.create_user(**validated_data, user)
         return habit
