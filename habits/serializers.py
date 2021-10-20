@@ -5,4 +5,4 @@ from .models import Habit
 class HabitSerialzer(serializers.ModelSerializer):
     class Meta:
         model = Habit
-        fields = ['user', 'name']
+        fields = ['user', 'name', 'date']
