@@ -20,5 +20,5 @@ class HabitCreateSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         user = self.context['reuqest'].user
-        habit = Habit.objects.create_user(**validated_data, user)
+        habit = Habit.objects.create_user(user=user, **validated_data)
         return habit
