@@ -12,18 +12,13 @@ class HabitCreateView(generics.CreateAPIView):
     serializer_class = HabitCreateSerializer
 
 
-class HabitListView(generics.ListCreateAPIView):
+class HabitListView(generics.ListAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
     permission_classes = [IsAuthorOrReadOnly]
-
-    def get_object(self):
-        return self.request.user
 
 
 class HabitUpdateView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerializer
-
-    def get_object(self):
-        return self.request.user
+    permission_classes = [IsAuthorOrReadOnly]
