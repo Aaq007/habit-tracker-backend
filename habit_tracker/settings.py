@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'authentication',
     'habits',
+    'rest_framework.authtoken'
+
 ]
 
 MIDDLEWARE = [
@@ -69,6 +71,14 @@ TEMPLATES = [
         },
     },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 
 WSGI_APPLICATION = 'habit_tracker.wsgi.application'
 
