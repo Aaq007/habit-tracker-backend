@@ -1,5 +1,5 @@
 from django.urls import path
-
+from .views import UserCreateView, UserLoginView
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    # path('login/',),
 ]
