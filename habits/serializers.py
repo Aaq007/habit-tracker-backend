@@ -6,7 +6,7 @@ from .models import Habit
 class HabitSerialzer(serializers.ModelSerializer):
     class Meta:
         model = Habit
-        fields = ['user', 'name', 'date']
+        fields = ['name', 'date']
 
     def validate_date(self, value):
         if value is not None:
