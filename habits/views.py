@@ -2,7 +2,7 @@ from django.shortcuts import render
 from rest_framework import generics
 
 from .models import Habit
-from .serializers import HabitCreateSerializer, HabitSerialzer
+from .serializers import HabitCreateSerializer, HabitSerializer
 from .permissions import IsAuthorOrReadOnly
 # Create your views here.
 
@@ -14,7 +14,7 @@ class HabitCreateView(generics.CreateAPIView):
 
 class HabitListView(generics.ListCreateAPIView):
     queryset = Habit.objects.all()
-    serializer_class = HabitSerialzer
+    serializer_class = HabitSerializer
     permission_classes = [IsAuthorOrReadOnly]
 
     def get_object(self):
@@ -23,7 +23,7 @@ class HabitListView(generics.ListCreateAPIView):
 
 class HabitUpdateView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Habit.objects.all()
-    serializer_class = HabitSerialzer
+    serializer_class = HabitSerializer
 
     def get_object(self):
         return self.request.user
