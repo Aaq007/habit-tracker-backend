@@ -16,9 +16,9 @@ class HabitCreateSerializer(serializers.Serializer):
 
     def validate_date(self, value):
         if value is not None:
-            datetime.fromisoformat(value)
+            return datetime.fromisoformat(str(value))
 
     def create(self, validated_data):
-        user = self.context['reuqest'].user
-        habit = Habit.objects.create_user(user=user, **validated_data)
+        user = self.context['request'].user
+        habit = Habit.objects.create(user=user, **validated_data)
         return habit
