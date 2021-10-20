@@ -7,6 +7,10 @@ from .permissions import IsAuthorOrReadOnly
 # Create your views here.
 
 
+class HabitCreateView(generics.CreateAPIView):
+    queryset = Habit.objects.all()
+
+
 class HabitListView(generics.ListCreateAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitSerialzer
