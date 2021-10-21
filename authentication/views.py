@@ -4,7 +4,7 @@ from rest_framework.authentication import TokenAuthentication
 
 from .models import User
 from .serializers import (UserCreateSerializer, UserListSerializer,
-                          UserLoginSerializer)
+                          )
 
 # Create your views here.
 
