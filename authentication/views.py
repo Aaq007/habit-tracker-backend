@@ -11,14 +11,6 @@ class UserCreateView(generics.CreateAPIView):
     serializer_class = UserCreateSerializer
 
 
-class UserLoginView(generics.RetrieveAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserLoginSerializer
-
-    def get_object(self):
-        return self.request.user
-
-
 class UserListView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserListSerializer
