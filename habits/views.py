@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 
 from .models import Habit
 from .serializers import HabitCreateSerializer, HabitSerializer
@@ -10,6 +11,7 @@ from .permissions import IsAuthorOrReadOnly
 class HabitCreateView(generics.CreateAPIView):
     queryset = Habit.objects.all()
     serializer_class = HabitCreateSerializer
+    permission_classes = (IsAuthenticated,)
 
 
 class HabitListView(generics.ListAPIView):
