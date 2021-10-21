@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions
 from .models import User
-from .serializers import UserCreateSerializer, UserLoginSerializer
+from .serializers import UserCreateSerializer, UserListSerializer, UserLoginSerializer
+from rest_framework.authentication import TokenAuthentication
 # Create your views here.
 
 
@@ -20,5 +21,6 @@ class UserLoginView(generics.RetrieveAPIView):
 
 class UserListView(generics.ListAPIView):
     queryset = User.objects.all()
-    serializer_class = UserCreateSerializer
+    serializer_class = UserListSerializer
     permission_classes = (permissions.IsAdminUser,)
+    authentication_classes = [TokenAuthentication]
