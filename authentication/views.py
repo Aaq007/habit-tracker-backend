@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from rest_framework import generics, permissions
-from .models import User
-from .serializers import UserCreateSerializer, UserListSerializer, UserLoginSerializer
 from rest_framework.authentication import TokenAuthentication
+
+from .models import User
+from .serializers import (UserCreateSerializer, UserListSerializer,
+                          UserLoginSerializer)
+
 # Create your views here.
 
 
