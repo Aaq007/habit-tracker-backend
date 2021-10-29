@@ -7,13 +7,13 @@ FROM python:3.6
 ENV PYTHONUNBUFFERED 1
 
 # create root directory for our project in the container
-RUN mkdir /music_service
+RUN mkdir /habit_tracker_backend
 
-# Set the working directory to /music_service
-WORKDIR /music_service
+# Set the working directory to /habit_tracker_backend
+WORKDIR /habit_tracker_backend
 
 # Copy the current directory contents into the container at /music_service
-ADD . /music_service/
+ADD . /habit_tracker_backend//
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
